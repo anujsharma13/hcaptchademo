@@ -1,0 +1,31 @@
+﻿@model hcaptchademo.Models.Student
+<html>
+  <head>
+    <title>hCaptcha Demo</title>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script type="text/javascript">
+         function onloadCallback() {
+          hcaptcha.render('captcha-1', {
+          sitekey: '10000000-ffff-ffff-ffff-000000000001',
+          theme: 'dark',
+         'error-callback': 'onError',
+        });
+    }
+
+</script>
+  </head>
+  <body>
+    <form asp-action="Result" asp-controller="Home" method="POST">
+      <input type="text" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
+      <div
+  class="h-captcha"
+  data-sitekey="10000000-ffff-ffff-ffff-000000000001"
+  data-theme="dark"
+  data-error-callback="onError"></div>
+
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
